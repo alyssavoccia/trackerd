@@ -1,44 +1,52 @@
-import TrackerdLogo from '../assets/TrackerdLogo.png';
+import { useState } from 'react';
+import trackerdLogo from '../assets/TrackerdLogo.png';
 import heroImg from '../assets/undraw_progress_overview.svg';
 import manageProjectsImg from '../assets/undraw_scrum_board.svg';
 import progressImg from '../assets/undraw_progress.svg';
 import invoiceImg from '../assets/undraw_printing_invoices.svg';
 
 function LandingPage() {
+  const [show, setShow] = useState(false);
+
   return (
     <>
       <header>
-        <nav className="navbar navbar-expand-lg shadow-md py-2 bg-white relative flex items-center w-full justify-between">
-          <div className="px-6 w-full flex flex-wrap items-center justify-between">
-            <div className="flex items-center">
-              <button className="navbar-toggler border-0 py-3 lg:hidden leading-none text-xl bg-transparent text-gray-600 hover:text-gray-700 focus:text-gray-700 transition-shadow duration-150 ease-in-out mr-2" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContentY" aria-controls="navbarSupportedContentY" aria-expanded="false" aria-label="Toggle navigation">
-                <svg aria-hidden="true" focusable="false" data-prefix="fas" className="w-5" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
-                  <path fill="currentColor" d="M16 132h416c8.837 0 16-7.163 16-16V76c0-8.837-7.163-16-16-16H16C7.163 60 0 67.163 0 76v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16z"></path>
-                </svg>
-              </button>
-              <a className="navbar-brand" href="#!">
-                <img src={TrackerdLogo} alt='Trackerd Logo' className='w-32' />
-              </a>
+        <nav className="fixed w-full bg-white shadow-md sm:py-6 lg:py-1">
+          <div className="container mx-auto px-6 flex items-center justify-between">
+            <div className="flex items-center" aria-label="Home" role="img">
+              <img className="cursor-pointer w-32" src={trackerdLogo} alt="logo" />
             </div>
-            <div className="flex items-center lg:ml-auto">
-              <ul className="navbar-nav mr-auto lg:flex lg:flex-row">
-                <li className="nav-item">
-                  <a className="nav-link block pr-2 lg:px-2 py-2 text-gray-600 hover:text-gray-700 focus:text-gray-700 transition duration-150 ease-in-out" href="#!" data-mdb-ripple="true" data-mdb-ripple-color="light">About</a>
-                </li>
-                <li className="nav-item">
-                  <a className="nav-link block pr-2 lg:px-2 py-2 text-gray-600 hover:text-gray-700 focus:text-gray-700 transition duration-150 ease-in-out" href="#!" data-mdb-ripple="true" data-mdb-ripple-color="light">Features</a>
-                </li>
-                <li className="nav-item">
-                  <a className="nav-link block pr-2 lg:px-2 py-2 text-gray-600 hover:text-gray-700 focus:text-gray-700 transition duration-150 ease-in-out" href="#!" data-mdb-ripple="true" data-mdb-ripple-color="light">Pricing</a>
-                </li>
-              </ul>
-              <button type="button" className="inline-block px-6 py-2.5 mr-2 bg-transparent text-purpleBlue-500 font-medium text-xs leading-tight uppercase rounded hover:text-purpleBlue-700 hover:bg-gray-100 focus:bg-gray-100 focus:outline-none focus:ring-0 active:bg-gray-200 transition duration-150 ease-in-out" data-mdb-ripple="true" data-mdb-ripple-color="light">Login</button>
-              <button type="button" className="inline-block px-6 py-2.5 bg-purpleBlue-500 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-purpleBlue-700 hover:shadow-lg focus:bg-purpleBlue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-purpleBlue-800 active:shadow-lg transition duration-150 ease-in-out" data-mdb-ripple="true" data-mdb-ripple-color="light">Sign up for free</button>
+            <div>
+              <button onClick={() => setShow(!show)} className="sm:block md:hidden lg:hidden text-slate-500 hover:text-slate-700 focus:text-slate-700 focus:outline-none focus:ring-2 focus:ring-gray-500">
+                <img className="h-8 w-8" src="https://tuk-cdn.s3.amazonaws.com/can-uploader/center_aligned_with_image-svg4.svg" alt="show" />
+              </button>
+              <div id="menu" className={`md:block lg:block ${show ? '' : 'hidden'}`}>
+                <button onClick={() => setShow(!show)} className="block md:hidden lg:hidden text-gray-500 hover:text-gray-700 focus:text-gray-700 fixed focus:outline-none focus:ring-2 focus:ring-gray-500 bg-white md:bg-transparent z-30 top-6">
+                  <img className="h-8 w-8" src="https://tuk-cdn.s3.amazonaws.com/can-uploader/center_aligned_with_image-svg5.svg" alt="hide" />
+                </button>
+                <ul className="flex text-3xl md:text-base items-center py-6 md:flex flex-col md:flex-row justify-center fixed md:relative top-0 bottom-0 left-0 right-0 bg-white md:bg-transparent  z-20">
+                  <li className="text-gray-600 hover:text-gray-700 focus:text-gray-700 transition duration-150 ease-in-out cursor-pointer md:ml-10 pt-10 md:pt-0">
+                    <a href="#!">About</a>
+                  </li>
+                  <li className="text-gray-600 hover:text-gray-700 focus:text-gray-700 transition duration-150 ease-in-out cursor-pointer md:ml-10 pt-10 md:pt-0">
+                    <a href="#!">Features</a>
+                  </li>
+                  <li className="text-gray-600 hover:text-gray-700 focus:text-gray-700 transition duration-150 ease-in-out cursor-pointer md:ml-10 pt-10 md:pt-0">
+                    <a href="#!">Pricing</a>
+                  </li>
+                  <li className="text-purpleBlue-500 hover:text-purpleBlue-700 focus:text-purpleBlue-700 transition duration-150 ease-in-out cursor-pointer md:ml-10 pt-10 md:pt-0">
+                    <a href='#!'>Login</a>
+                  </li>
+                  <li className="text-white text-lg cursor-pointer md:ml-10 pt-10 md:pt-0">
+                    <a href='#!' className="bg-purpleBlue-500 hover:bg-purpleBlue-600 px-4 py-2 rounded transition duration-150 ease-in-out">Sign up for free</a>
+                  </li>
+                </ul>
+              </div>
             </div>
           </div>
         </nav>
       </header>
-      <main>
+      <main className='pt-20'>
         {/* HERO */}
         <section className="mb-32">
           <div className="px-6 py-12 md:px-12 bg-athensGray text-gray-700 text-center lg:text-left">
@@ -64,34 +72,34 @@ function LandingPage() {
               What makes us so<u className="text-purpleBlue-600"> unique?</u>
             </h2>
           </div>
-          <div class="flex flex-wrap mb-12">
-            <div class="grow-0 shrink-0 basis-auto w-full lg:w-6/12 lg:pr-6 mb-6 lg:mb-0">
-              <div class="overflow-hidden bg-no-repeat bg-cover">
-                <img src={manageProjectsImg} class="w-9/12 mx-auto" alt="People organizing projects on board" />
+          <div className="flex flex-wrap mb-12">
+            <div className="grow-0 shrink-0 basis-auto w-full lg:w-6/12 lg:pr-6 mb-6 lg:mb-0">
+              <div className="overflow-hidden bg-no-repeat bg-cover">
+                <img src={manageProjectsImg} className="w-9/12 mx-auto" alt="People organizing projects on board" />
               </div>
             </div>
-            <div class="grow-0 shrink-0 basis-auto w-full lg:w-6/12 lg:pl-6">
-              <h3 class="text-2xl font-bold mb-4">Manage projects in one place</h3>
-              <p class="text-gray-500 mb-6">
+            <div className="grow-0 shrink-0 basis-auto w-full lg:w-6/12 lg:pl-6">
+              <h3 className="text-2xl font-bold mb-4">Manage projects in one place</h3>
+              <p className="text-gray-500 mb-6">
                 Ut pretium ultricies dignissim. Sed sit amet mi eget urna placerat vulputate. Ut
                 vulputate est non quam dignissim elementum. Donec a ullamcorper diam.
               </p>
-              <p class="text-gray-500">
+              <p className="text-gray-500">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea quae nulla saepe rerum
                 aspernatur odio amet perferendis tempora mollitia? Ratione unde magni omnis quaerat
                 blanditiis cumque dolore placeat rem dignissimos?
               </p>
             </div>
           </div>
-          <div class="flex flex-wrap lg:flex-row-reverse mb-12">
-            <div class="grow-0 shrink-0 basis-auto w-full lg:w-6/12 lg:pl-6 mb-6 lg:mb-0">
-              <div class="overflow-hidden bg-no-repeat bg-cover">
-                <img src={progressImg} class="w-9/12 mx-auto" alt="Printing invoices" />
+          <div className="flex flex-wrap lg:flex-row-reverse mb-12">
+            <div className="grow-0 shrink-0 basis-auto w-full lg:w-6/12 lg:pl-6 mb-6 lg:mb-0">
+              <div className="overflow-hidden bg-no-repeat bg-cover">
+                <img src={progressImg} className="w-9/12 mx-auto" alt="Printing invoices" />
               </div>
             </div>
-            <div class="grow-0 shrink-0 basis-auto w-full lg:w-6/12 lg:pr-6">
-              <h3 class="text-2xl font-bold mb-4">Track individual project progress</h3>
-              <p class="text-gray-500">
+            <div className="grow-0 shrink-0 basis-auto w-full lg:w-6/12 lg:pr-6">
+              <h3 className="text-2xl font-bold mb-4">Track individual project progress</h3>
+              <p className="text-gray-500">
                 Duis sagittis, turpis in ullamcorper venenatis, ligula nibh porta dui, sit amet rutrum
                 enim massa in ante. Curabitur in justo at lorem laoreet ultricies. Nunc ligula felis,
                 sagittis eget nisi vitae, sodales vestibulum purus. Vestibulum nibh ipsum, rhoncus vel
@@ -103,15 +111,15 @@ function LandingPage() {
               </p>
             </div>
           </div>
-          <div class="flex flex-wrap">
-            <div class="grow-0 shrink-0 basis-auto w-full lg:w-6/12 lg:pr-6 mb-6 lg:mb-0">
-              <div class="overflow-hidden bg-no-repeat bg-cover">
-                <img src={invoiceImg} class="w-9/12" alt="Printing invoices" />
+          <div className="flex flex-wrap">
+            <div className="grow-0 shrink-0 basis-auto w-full lg:w-6/12 lg:pr-6 mb-6 lg:mb-0">
+              <div className="overflow-hidden bg-no-repeat bg-cover">
+                <img src={invoiceImg} className="w-9/12" alt="Printing invoices" />
               </div>
             </div>
-            <div class="grow-0 shrink-0 basis-auto w-full lg:w-6/12 lg:pl-6">
-              <h3 class="text-2xl font-bold mb-4">Track time & generate invoices</h3>
-              <p class="text-gray-500">
+            <div className="grow-0 shrink-0 basis-auto w-full lg:w-6/12 lg:pl-6">
+              <h3 className="text-2xl font-bold mb-4">Track time & generate invoices</h3>
+              <p className="text-gray-500">
                 Sed sollicitudin purus sed nulla dignissim ullamcorper. Aenean tincidunt vulputate
                 libero, nec imperdiet sapien pulvinar id. Nullam scelerisque odio vel lacus faucibus,
                 tincidunt feugiat augue ornare. Proin ac dui vel lectus eleifend vestibulum et
@@ -120,9 +128,7 @@ function LandingPage() {
                 vel porttitor odio. Ut pulvinar sed turpis ornare tincidunt. Donec luctus, mi euismod
                 dignissim malesuada, lacus lorem commodo leo, tristique blandit ante mi id metus.
                 Integer et vehicula leo, vitae interdum lectus. Praesent nulla purus, commodo at
-                euismod nec, blandit ultrices erat. Aliquam eros ipsum, interdum et mattis vitae,
-                faucibus vitae justo. Nulla condimentum hendrerit leo, in feugiat ipsum condimentum
-                ac. Maecenas sed blandit dolor.
+                euismod nec, blandit ultrices erat.
               </p>
             </div>
           </div>
