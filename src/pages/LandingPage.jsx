@@ -11,7 +11,7 @@ function LandingPage() {
   return (
     <>
       <header>
-        <nav className="fixed w-full bg-white shadow-md sm:py-6 lg:py-1">
+        <nav className="fixed w-full bg-white shadow-md py-6 lg:py-1">
           <div className="container mx-auto px-6 flex items-center justify-between">
             <div className="flex items-center" aria-label="Home" role="img">
               <img className="cursor-pointer w-32" src={trackerdLogo} alt="logo" />
@@ -46,10 +46,10 @@ function LandingPage() {
           </div>
         </nav>
       </header>
-      <main className='pt-20'>
+      <main className='pt-5 md:pt-20'>
         {/* HERO */}
-        <section className="mb-32">
-          <div className="px-6 py-12 md:px-12 bg-athensGray text-gray-700 text-center lg:text-left">
+        <section className="mb-16 md:mb-28">
+          <div className="px-6 py-8 md:py-12 md:px-12 bg-athensGray text-gray-700 text-center lg:text-left">
             <div className="container mx-auto xl:px-32">
               <div className="grid lg:grid-cols-2 gap-12 items-center">
                 <div className="mt-12 lg:mt-0">
@@ -58,14 +58,14 @@ function LandingPage() {
                   <a className="inline-block px-7 py-3 bg-transparent text-purpleBlue-500 font-medium text-sm leading-snug uppercase rounded hover:text-purpleBlue-700 hover:bg-gray-100 focus:bg-gray-100 focus:outline-none focus:ring-0 active:bg-gray-200 transition duration-150 ease-in-out" data-mdb-ripple="true" data-mdb-ripple-color="light" href="#!" role="button">Learn more</a>
                 </div>
                 <div className="mb-12 lg:mb-0">
-                  <img src={heroImg} className="w-full" alt="Drawing of progress overview" />
+                  <img src={heroImg} className="w-8/12 mx-auto md:w-full" alt="Drawing of progress overview" />
                 </div>
               </div>
             </div>
           </div>
         </section>
         {/* ABOUT */}
-        <section className="max-w-6xl mb-32 mx-auto text-gray-700">
+        <section className="px-4 md:px-0 max-w-6xl mb-32 mx-auto text-gray-700">
           <div className="w-full text-center mx-auto lg:w-4/12 mb-6 md:mb-10 px-3">
             <p className="uppercase text-purpleBlue-500 font-bold mb-4">About</p>
             <h2 className="text-3xl font-bold mb-6">
@@ -114,7 +114,7 @@ function LandingPage() {
           <div className="flex flex-wrap">
             <div className="grow-0 shrink-0 basis-auto w-full lg:w-6/12 lg:pr-6 mb-6 lg:mb-0">
               <div className="overflow-hidden bg-no-repeat bg-cover">
-                <img src={invoiceImg} className="w-9/12" alt="Printing invoices" />
+                <img src={invoiceImg} className="w-9/12 mx-auto" alt="Printing invoices" />
               </div>
             </div>
             <div className="grow-0 shrink-0 basis-auto w-full lg:w-6/12 lg:pl-6">
